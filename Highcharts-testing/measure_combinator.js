@@ -110,8 +110,10 @@ function fetchMultiple(years, cities, measures, measureNames) {
 }
 
 /*** Gjør om data til et objekt til å bruke i en Highcharts figur
- * 
+ *
  * @param measureData - dataen som skal legges inn i objektet
+ *
+ * @return obj - objektet som skal brukes for å lage en Highcharts figur
  *
 **/
 function createHsData(measureData) {
