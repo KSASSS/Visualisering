@@ -71,6 +71,19 @@ function transformMeasureToUrl(measurename) {
   return newName;
 }
 
+/*** Henter data fra flere indikatorer og lager en figur for hver enkelt
+ *
+ * Bruker fetchData til å hente data for hver enkelt indikator og createHsData
+ * for å få dataene på en form som Highcharts trenger. I tillegg bruker den
+ * createContainer for å lage en ny container i html dokumentet og createChart
+ * for å lage selve figuren.
+ *
+ * @param years - en kommaseparert liste over år
+ * @param cities - en kommaseparert liste over byer
+ * @param measure - et array med navnet på indikatorer man skal hente data til
+ * @param measureNames - et array med navnene til alle indikatorene
+ *
+**/
 function fetchMultiple(years, cities, measures, measureNames) {
   var counter = 0;
   var yearsArr = years.split(',');
@@ -94,8 +107,6 @@ function fetchMultiple(years, cities, measures, measureNames) {
         counter++;
     })
   })
-
-  return data;
 }
 
 function createHsData(measureData) {
