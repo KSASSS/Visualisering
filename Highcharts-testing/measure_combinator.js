@@ -53,6 +53,15 @@ function fetchData(years, cities, measure, resolve) {
 
 }
 
+/*** Oversetter et indikatornavn til et navn som kan brukes i en URL
+ *
+ * Erstatter mellomrom med %20, og æøå med verdier som kan brukes i en URL.
+ *
+ * @param measurename - navnet på indikatoren
+ *
+ * @return newName - indikatornavnet som kan brukes i en URL
+ *
+**/
 function transformMeasureToUrl(measurename) {
   newName = measurename.replace(/\ /g, '%20');
   newName = newName.replace(/æ/g, '%C3%A6')
