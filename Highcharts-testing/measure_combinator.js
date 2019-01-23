@@ -132,6 +132,11 @@ function createHsData(measureData) {
   return obj;
 }
 
+/*** Lager en div som skal inneholde Highcharts figuren
+ *
+ * @param counter - nummeret på div'n
+ *
+**/
 function createContainer(counter) {
   body = document.getElementById('figurer');
   div = document.createElement('div');
