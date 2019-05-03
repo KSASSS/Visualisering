@@ -130,6 +130,17 @@ function createContainer(counter) {
   body.appendChild(div);
 }
 
+
+/** Henter data fra flere indikatorer
+ *
+ * Looper på et array med indikatorer og henter data for byene og årene spesifisert
+ *
+ * @param years - årene som data skal hentes fra
+ * @param cities - byene som data skal hentes fra
+ * @param measures - indikatorene som data skal hentes fra
+ * @param measureNames - navnene på indikatorene og ikke på URL formen
+ *
+**/
 function fetchMultiple(years, cities, measures, measureNames) {
   var counter = 0;
   var yearsArr = years.split(',');
@@ -157,6 +168,17 @@ function fetchMultiple(years, cities, measures, measureNames) {
   return data;
 }
 
+
+/** Henter data fra flere indikatorer, men med kommuner og år byttet på kolonnene
+ *
+ * Looper på et array med indikatorer og henter data for byene og årene spesifisert
+ *
+ * @param years - årene som data skal hentes fra
+ * @param cities - byene som data skal hentes fra
+ * @param measures - indikatorene som data skal hentes fra
+ * @param measureNames - navnene på indikatorene og ikke på URL formen
+ *
+**/
 function fetchMultipleAlt(years, cities, measures, measureNames) {
   var counter = 0;
   var citiesArr = cities.split(',');
@@ -199,6 +221,17 @@ function transformMeasureToUrl(measurename) {
   return newName;
 }
 
+
+/** Setter i gang alt
+ *
+ * Gjør om indikatornavnene til URL form ved å kalle på transformMeasureToUrl,
+ * før den kaller på fetchMultipleAlt som henter data for flere indikatorer.
+ *
+ * @param years - årene data skal hentes fra
+ * @param cities - byene data skal hentes fra
+ * @param measureNames - navn på indikatorene
+ *
+**/
 function createFigures(years, cities, measureNames) {
   var measures = measureNames.map((item) => {
     return transformMeasureToUrl(item);
