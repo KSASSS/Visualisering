@@ -1,9 +1,6 @@
 //True if the left navbar is open
 var open = false;
-//True if the left navbar has gotten filtervalues
-//var populated = false;
 
-//Example on how data could be stored and used in a filterbox
 var years = {
   title: 'År',
   values: ['2015', '2016', '2017', '2018'],
@@ -62,7 +59,9 @@ function changeNav() {
   }
 }
 
+/** Collapses a filterbox
 
+*/
 function collapseFilterBox(filterbox) {
   var collapsed;
   var filters = filterbox.childNodes;
@@ -94,6 +93,10 @@ function getFilterValue(activeFilter) {
   return value;
 }
 
+/** Gets the values of the currently selected filterSelect
+ *
+ * Looks at the childnodes of the filterbox and calls getFilterValue on each of them
+**/
 function getSelectedFilterValues(activeFilterbox) {
   var obj = {};
   var filters =  Array.from(activeFilterbox.childNodes);
@@ -108,6 +111,7 @@ function getSelectedFilterValues(activeFilterbox) {
 
   return obj;
 }
+
 
 function loadFigures() {
   var activeFilters = document.getElementById('activeFilters');
